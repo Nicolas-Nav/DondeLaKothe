@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donde la Kothe - Cocina con Amor y Sabor</title>
+    <!-- Fuentes de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-kraft: #f4e8d8;
+            --bg-card: #fffdf9;
+            --primary-brown: #4a2e18;
+            --accent-orange: #c85a28;
+            --accent-orange-hover: #a8461b;
+            --green-detail: #5a7042;
+            --text-dark: #2d1e13;
+            --text-muted: #6e5a4b;
+            --border-radius: 18px;
+            --shadow: 0 10px 25px rgba(74, 46, 24, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-kraft);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 90px;
+        }
+
+        /* HEADER & HERO */
+        header {
+            background: linear-gradient(180deg, #ebd2b7 0%, var(--bg-kraft) 100%);
+            text-align: center;
+            padding: 30px 20px 20px;
+            border-bottom: 3px dashed rgba(74, 46, 24, 0.15);
+        }
+
+        .logo-container img {
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.03);
+        }
+
+        .tagline {
+            font-family: 'Fredoka', cursive;
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        /* REDES SOCIALES EN HEADER */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: var(--primary-brown);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .social-btn:hover {
+            background-color: var(--accent-orange);
+            transform: translateY(-3px);
+        }
+
+        /* CATEGORÍAS (NAVEGACIÓN) */
+        .nav-categories {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            background-color: rgba(244, 232, 216, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: thin;
+        }
+
+        @media (min-width: 768px) {
+            .nav-categories {
+                justify-content: center;
+            }
+        }
+
+        .category-btn {
+            background: var(--bg-card);
+            border: 2px solid var(--primary-brown);
+            color: var(--primary-brown);
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-family: 'Fredoka', cursive;
+            font-size: 0.95rem;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.25s ease;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background: var(--primary-brown);
+            color: #fff;
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.6rem;
+            color: var(--primary-brown);
+            margin: 30px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid rgba(74, 46, 24, 0.1);
+            padding-bottom: 8px;
+        }
+
+        .section-title i {
+            color: var(--accent-orange);
+        }
+
+        /* GRID DE PRODUCTOS RESPONSIVO */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        /* TARJETA DE PRODUCTO */
+        .product-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(74, 46, 24, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(74, 46, 24, 0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--green-detail);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        .product-header {
+            margin-bottom: 10px;
+            padding-right: 45px; /* Evita solapamiento con el badge */
+        }
+
+        .product-title {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.2rem;
+            color: var(--primary-brown);
+            line-height: 1.3;
+        }
+
+        .product-price {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.3rem;
+            color: var(--accent-orange);
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .ingredients-box {
+            margin: 10px 0 18px;
+            background-color: #fcf8f2;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border-left: 3px solid var(--accent-orange);
+            flex-grow: 1;
+        }
+
+        .ingredients-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: var(--text-muted);
+            margin-bottom: 3px;
+        }
+
+        .ingredients-list {
+            font-size: 0.88rem;
+            color: var(--text-dark);
+        }
+
+        /* BOTÓN DE PEDIDO INDIVIDUAL */
+        .btn-order-item {
+            background-color: var(--primary-brown);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .btn-order-item:hover {
+            background-color: var(--accent-orange);
+        }
+
+        /* BOTÓN FLOTANTE WHATSAPP GENERAL */
+        .btn-whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-family: 'Fredoka', cursive;
+            font-size: 1rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp-float:hover {
+            transform: scale(1.05);
+            background-color: #1eb954;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px 20px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / LOGO -->
+    <header>
+        <div class="logo-container">
+            <img src="Logo_DodeLaKothe_recortado-removebg-preview.png" alt="Donde la Kothe Logo" id="logo-img">
+        </div>
+        <p class="tagline">✨ Cocina con amor y sabor ✨</p>
+        <!-- REDES SOCIALES -->
+        <div class="social-links">
+            <a href="https://www.instagram.com/dondelakothe/" target="_blank" class="social-btn" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com/tu_pagina" target="_blank" class="social-btn" title="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+        </div>
+        <div class="address" style="margin-top: 15px; font-size: 0.9rem; color: var(--text-muted);">
+            Víctor Jara 64, Cañete · Tel: <a href="tel:+56944371164" style="color: var(--accent-orange); text-decoration: none;">+56 9 4437 1164</a>  
+        </div>
+        <a href="Donde_la_Kothe_menu_actualizado.html" target="_blank" style="display: inline-block; margin-top: 10px; font-size: 0.9rem; color: var(--accent-orange); text-decoration: underline;">Ver menú completo en PDF</a>
+    </header>
+
+    <!-- FILTROS POR CATEGORÍA -->
+    <nav class="nav-categories">
+        <button class="category-btn active" onclick="filterCategory('todos')">Todos</button>
+        <button class="category-btn" onclick="filterCategory('completos')">Completos</button>
+        <button class="category-btn" onclick="filterCategory('churrascos')">Churrascos</button>
+        <button class="category-btn" onclick="filterCategory('sandwiches')">Sándwiches</button>
+        <button class="category-btn" onclick="filterCategory('papas')">Papas Fritas</button>
+        <button class="category-btn" onclick="filterCategory('especiales')">Especiales</button>
+    </nav>
+
+    <div class="container">
+        <!-- SECCIÓN DE PRODUCTOS -->
+        <div id="menu-container"></div>
+    </div>
+
+    <!-- BOTÓN FLOTANTE PEDIR A WHATSAPP -->
+    <a href="https://wa.me/56944371164?text=¡Hola%20Donde%20la%20Kothe!%20Quiero%20hacer%20un%20pedido." target="_blank" class="btn-whatsapp-float">
+        <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i>
+        Pedir por WhatsApp
+    </a>
+
+    <footer>
+        <p><strong>Donde la Kothe</strong> — Todos los derechos reservados</p>
+        <p>Hecho con ❤️ y sabor</p>
+    </footer>
+
+    <script>
+        const WHATSAPP_NUMBER = "56944371164";
+
+        // BASE DE DATOS ACTUALIZADA CON LA FICHA TÉCNICA
+        const menuData = [
+            // COMPLETOS
+            { id: 1, nombre: "Completo Alemán", categoria: "completos", precio: "$1.800", ingredientes: "Vienesa, tomate en cubos, chucrut y lactonesa a gusto.", destacado: "" },
+            { id: 2, nombre: "Completo Dinámico", categoria: "completos", precio: "$1.800", ingredientes: "Vienesa, tomate, palta, chucrut, salsa americana y mayonesa.", destacado: "Popular" },
+            { id: 3, nombre: "Completo Italiano", categoria: "completos", precio: "$1.800", ingredientes: "Vienesa extra grande, tomate picado en cubos, palta molida casera y mayonesa de la casa.", destacado: "Favorito" },
+            { id: 4, nombre: "Completo Palta Mayo", categoria: "completos", precio: "$1.500", ingredientes: "Vienesa jugosa, generosa capa de palta molida y mayonesa casera.", destacado: "" },
+            { id: 5, nombre: "Completo Solo (Hot Dog)", categoria: "completos", precio: "$1.000", ingredientes: "Pan de completo tostado, vienesa y aderezos clásicos (mostaza/ketchup).", destacado: "" },
+
+            // CHURRASCOS
+            { id: 6, nombre: "Churrasco Barros Luco", categoria: "churrascos", precio: "$3.500", ingredientes: "Fina carne de vacuno a la plancha y abundante queso fundido derretido.", destacado: "" },
+            { id: 7, nombre: "Churrasco Chacarero", categoria: "churrascos", precio: "$3.800", ingredientes: "Carne de vacuno, porotos verdes tiernos, tomate en rodajas y ají verde opcional.", destacado: "" },
+            { id: 8, nombre: "Churrasco Italiano", categoria: "churrascos", precio: "$3.800", ingredientes: "Carne de vacuno, tomate fresco en cubos, palta molida y mayonesa de la casa.", destacado: "Recomendado" },
+            { id: 9, nombre: "Churrasco Palta Mayo", categoria: "churrascos", precio: "$3.600", ingredientes: "Carne de vacuno a la plancha, palta fresca y mayonesa artesanal.", destacado: "" },
+
+            // SÁNDWICHES
+            { id: 10, nombre: "Sándwich Italiano (Vacuno o Pollo)", categoria: "sandwiches", precio: "$3.900", ingredientes: "Base de vacuno o pollo, tomate fresco, palta molida y mayonesa.", destacado: "" },
+            { id: 11, nombre: "Sándwich Barros Luco", categoria: "sandwiches", precio: "$3.600", ingredientes: "Carne o pollo con doble porción de queso derretido en pan fresco.", destacado: "" },
+            { id: 12, nombre: "Sándwich Mayo Palta", categoria: "sandwiches", precio: "$3.600", ingredientes: "Elección de proteína con palta cremosa y mayonesa casera.", destacado: "" },
+            { id: 13, nombre: "Sándwich Chacarero", categoria: "sandwiches", precio: "$3.900", ingredientes: "Proteína seleccionada, porotos verdes, tomate y toque de ají.", destacado: "" },
+            { id: 14, nombre: "Sándwich Jarpa", categoria: "sandwiches", precio: "$3.000", ingredientes: "Tradicional jamón planchado con queso fundido estirado.", destacado: "Clásico" },
+
+            // PAPAS FRITAS
+            { id: 15, nombre: "Papas Fritas Clásicas", categoria: "papas", precio: "$1.000 / $2.000 / $3.000", ingredientes: "Papas fritas crujientes cortadas rústicas, punto exacto de sal.", destacado: "" },
+            { id: 16, nombre: "Papas Fritas con Salsa Cheddar y Tocino", categoria: "papas", precio: "$4.500", ingredientes: "Papas fritas bañadas en salsa de queso cheddar fundido y crujientes trozos de tocino.", destacado: "Top" },
+            { id: 17, nombre: "Papas Fritas con Crema y Choclo", categoria: "papas", precio: "$4.200", ingredientes: "Papas fritas acompañadas de suave crema de choclo casera.", destacado: "" },
+            { id: 18, nombre: "Papas Fritas con Pollo Crispy", categoria: "papas", precio: "$5.200", ingredientes: "Crocantes papas fritas coronadas con trozos de pollo empanizado crujiente y salsas.", destacado: "" },
+
+            // ESPECIALES
+            { id: 19, nombre: "Chorrillana (Para 2)", categoria: "especiales", precio: "$8.500", ingredientes: "Papas fritas rústicas, carne salteada, cebolla frita dorada, huevo frito y ciboulette.", destacado: "Para compartir" },
+            { id: 20, nombre: "Chorrillana (Para 4)", categoria: "especiales", precio: "$11.500", ingredientes: "Papas fritas rústicas, carne salteada, cebolla frita dorada, huevo frito y ciboulette.", destacado: "Para compartir" },
+            { id: 21, nombre: "Chorrillana (Para 6)", categoria: "especiales", precio: "$15.000", ingredientes: "Papas fritas rústicas, carne salteada, cebolla frita dorada, huevo frito y ciboulette.", destacado: "Para compartir" },
+            { id: 22, nombre: "Pichanga (Para 2)", categoria: "especiales", precio: "$8.500", ingredientes: "Trozo de papas fritas, cubitos de carne, pollo, queso, jamón, pepinillos y aceitunas.", destacado: "Especial" },
+            { id: 22, nombre: "Pichanga (Para 4)", categoria: "especiales", precio: "$11.500", ingredientes: "Trozo de papas fritas, cubitos de carne, pollo, queso, jamón, pepinillos y aceitunas.", destacado: "Especial" },
+            { id: 22, nombre: "Pichanga (Para 6)", categoria: "especiales", precio: "$15.000", ingredientes: "Trozo de papas fritas, cubitos de carne, pollo, queso, jamón, pepinillos y aceitunas.", destacado: "Especial" }
+        ];
+
+        // Función para renderizar el menú
+        function renderMenu(filter = 'todos') {
+            const container = document.getElementById('menu-container');
+            container.innerHTML = '';
+
+            const categoryNames = {
+                'completos': 'Completos',
+                'churrascos': 'Churrascos',
+                'sandwiches': 'Sándwiches',
+                'papas': 'Papas Fritas',
+                'especiales': 'Platos Especiales'
+            };
+
+            const categoriesToDisplay = filter === 'todos' 
+                ? Object.keys(categoryNames)
+                : [filter];
+
+            categoriesToDisplay.forEach(cat => {
+                const items = menuData.filter(item => item.categoria === cat);
+                if(items.length === 0) return;
+
+                const section = document.createElement('div');
+                section.style.marginBottom = "35px";
+
+                const catTitle = document.createElement('h2');
+                catTitle.className = 'section-title';
+                
+                let iconClass = 'fa-utensils';
+                if(cat === 'completos') iconClass = 'fa-hotdog';
+                if(cat === 'churrascos') iconClass = 'fa-bacon';
+                if(cat === 'sandwiches') iconClass = 'fa-burger';
+                if(cat === 'papas') iconClass = 'fa-bowl-food';
+                if(cat === 'especiales') iconClass = 'fa-drumstick-bite';
+
+                catTitle.innerHTML = `<i class="fa-solid ${iconClass}"></i> ${categoryNames[cat]}`;
+                section.appendChild(catTitle);
+
+                const grid = document.createElement('div');
+                grid.className = 'menu-grid';
+
+                items.forEach(product => {
+                    const message = encodeURIComponent(`¡Hola Donde la Kothe! 👋 Quisiera pedir: *${product.nombre}* (${product.precio}).`);
+                    const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                        ${product.destacado ? `<span class="product-badge">${product.destacado}</span>` : ''}
+                        <div class="product-header">
+                            <h3 class="product-title">${product.nombre}</h3>
+                            <div class="product-price">${product.precio}</div>
+                        </div>
+                        <div class="ingredients-box">
+                            <div class="ingredients-title">Ingredientes</div>
+                            <p class="ingredients-list">${product.ingredientes}</p>
+                        </div>
+                        <a href="${waLink}" target="_blank" class="btn-order-item">
+                            <i class="fa-brands fa-whatsapp"></i> Pedir este producto
+                        </a>
+                    `;
+                    grid.appendChild(card);
+                });
+
+                section.appendChild(grid);
+                container.appendChild(section);
+            });
+        }
+
+        // Función para filtrar categorías mediante botones
+        function filterCategory(cat) {
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            renderMenu(cat);
+        }
+
+        // Inicializar al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMenu();
+        });
+    </script>
+</body>
+</html>
