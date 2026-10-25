@@ -353,38 +353,42 @@
         // BASE DE DATOS ACTUALIZADA CON LA FICHA TÉCNICA
         const menuData = [
             // COMPLETOS
-            { id: 1, nombre: "Completo Alemán", categoria: "completos", precio: "$1.800", ingredientes: "Vienesa, tomate en cubos, chucrut y lactonesa a gusto.", destacado: "" },
-            { id: 2, nombre: "Completo Dinámico", categoria: "completos", precio: "$1.800", ingredientes: "Vienesa, tomate, palta, chucrut, salsa americana y mayonesa.", destacado: "Popular" },
-            { id: 3, nombre: "Completo Italiano", categoria: "completos", precio: "$1.800", ingredientes: "Vienesa extra grande, tomate picado en cubos, palta molida casera y mayonesa de la casa.", destacado: "Favorito" },
-            { id: 4, nombre: "Completo Palta Mayo", categoria: "completos", precio: "$1.500", ingredientes: "Vienesa jugosa, generosa capa de palta molida y mayonesa casera.", destacado: "" },
-            { id: 5, nombre: "Completo Solo (Hot Dog)", categoria: "completos", precio: "$1.000", ingredientes: "Pan de completo tostado, vienesa y aderezos clásicos (mostaza/ketchup).", destacado: "" },
+            { id: 1, nombre: "Completo Alemán", categoria: "completos", precio: "$1.800", ingredientes: "Pan copihue artesanal, salchicha sureña, tomate finamente picado y chucrut, acompañados de lactonesa de la casa.", destacado: "" },
+            { id: 2, nombre: "Completo Dinámico", categoria: "completos", precio: "$1.800", ingredientes: "Pan copihue artesanal, salchicha sureña, tomate picado, palta molida, chucrut, salsa verde (cilantro, cebolla, limón), salsa americana. ", destacado: "Popular" },
+            { id: 3, nombre: "Completo Italiano", categoria: "completos", precio: "$1.800", ingredientes: "Pan copihue artesanal, salchicha sureña, tomate picado, palta molida, coronado con lactonesa de la casa.", destacado: "Favorito" },
+            { id: 4, nombre: "Completo Palta/Tomate Mayo", categoria: "completos", precio: "$1.500", ingredientes: "Pan copihue artesanal, salchicha sureña, palta molida o tomate picado, deliciosa lactonesa de la casa.", destacado: "" },
+            { id: 5, nombre: "Completo Solo (Hot Dog)", categoria: "completos", precio: "$1.000", ingredientes: "Pan copihue artesanal, salchicha sureña, laconesa de la casa.", destacado: "" },
 
             // CHURRASCOS
-            { id: 6, nombre: "Churrasco Barros Luco", categoria: "churrascos", precio: "$3.500", ingredientes: "Fina carne de vacuno a la plancha y abundante queso fundido derretido.", destacado: "" },
-            { id: 7, nombre: "Churrasco Chacarero", categoria: "churrascos", precio: "$3.800", ingredientes: "Carne de vacuno, porotos verdes tiernos, tomate en rodajas y ají verde opcional.", destacado: "" },
-            { id: 8, nombre: "Churrasco Italiano", categoria: "churrascos", precio: "$3.800", ingredientes: "Carne de vacuno, tomate fresco en cubos, palta molida y mayonesa de la casa.", destacado: "Recomendado" },
-            { id: 9, nombre: "Churrasco Palta Mayo", categoria: "churrascos", precio: "$3.600", ingredientes: "Carne de vacuno a la plancha, palta fresca y mayonesa artesanal.", destacado: "" },
+            { id: 6, nombre: "Churrasco Barros Luco", categoria: "churrascos", precio: "$3.500", ingredientes: "Pan frica artesanal, churrasco de vacuno, láminas de queso derretidas. Acompañado de papas fritas.", destacado: "" },
+            { id: 7, nombre: "Churrasco Chacarero", categoria: "churrascos", precio: "$3.800", ingredientes: "Pan frica artesanal, churrasco de vacuno, rodajas de tomate, porotos verdes, rodajas de ají verde y lactonesa de la casa. Acompñado de papas fritas.", destacado: "" },
+            { id: 8, nombre: "Churrasco Italiano", categoria: "churrascos", precio: "$3.800", ingredientes: "Pan frica artesanal, churrasco de vacuno, rodajas de tomate, palta molida, lactonesa de la casa. Acompñado de papas fritas.", destacado: "Recomendado" },
+            { id: 9, nombre: "Churrasco Palta/Tomate Mayo", categoria: "churrascos", precio: "$3.600", ingredientes: "Pan frica artesanal, churrasco de vacuno, palta molida o tomate en rodajas, deliciosa lactonesa de la casa. Acompañado de papas fritas.", destacado: "" },
 
             // SÁNDWICHES
-            { id: 10, nombre: "Sándwich Italiano (Vacuno o Pollo)", categoria: "sandwiches", precio: "$3.900", ingredientes: "Base de vacuno o pollo, tomate fresco, palta molida y mayonesa.", destacado: "" },
-            { id: 11, nombre: "Sándwich Barros Luco", categoria: "sandwiches", precio: "$3.600", ingredientes: "Carne o pollo con doble porción de queso derretido en pan fresco.", destacado: "" },
-            { id: 12, nombre: "Sándwich Mayo Palta", categoria: "sandwiches", precio: "$3.600", ingredientes: "Elección de proteína con palta cremosa y mayonesa casera.", destacado: "" },
-            { id: 13, nombre: "Sándwich Chacarero", categoria: "sandwiches", precio: "$3.900", ingredientes: "Proteína seleccionada, porotos verdes, tomate y toque de ají.", destacado: "" },
-            { id: 14, nombre: "Sándwich Jarpa", categoria: "sandwiches", precio: "$3.000", ingredientes: "Tradicional jamón planchado con queso fundido estirado.", destacado: "Clásico" },
+            { id: 10, nombre: "Sandwich Barros Luco", categoria: "sandwiches", precio: "$3.600", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, láminas de queso derretido. Acompñado de papas fritas. ", destacado: "" },
+            { id: 11, nombre: "Sandwich Chacarero", categoria: "sandwiches", precio: "$3.900", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, rodajas de tomate, porotos verdes, aji verde y lactonesa. Acompñado de papas fritas.", destacado: "" },
+            { id: 12, nombre: "Sandwich Con to'", categoria: "sandwiches", precio: "$3.900", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, rodajas de tomate, lechuga, aros de cebolla morada, pepinillo dill, lactonesa. Acompñado de papas fritas.", destacado: "" },
+            { id: 13, nombre: "Sandwich Italiano", categoria: "sandwiches", precio: "$3.900", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, palta molida, rodajas de tomate, lactonesa de la casa. Acompñado de papas fritas.", destacado: "" },
+            { id: 14, nombre: "Sándwich Jarpa", categoria: "sandwiches", precio: "$3.000", ingredientes: "Pan frica artesanal, láminas de jamón sandwich a la plancha, láminas de queso derretido. Acompñado de papas fritas.", destacado: "Clásico" },
+            { id: 15, nombre: "Sandwich Palta/Tomate Mayo", categoria: "sandwiches", precio: "$3.600", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, palta molida o tomate en rodajas, lactonesa de la casa. Acompñado de papas fritas.", destacado: "" },
 
             // PAPAS FRITAS
-            { id: 15, nombre: "Papas Fritas Clásicas", categoria: "papas", precio: "$1.000 / $2.000 / $3.000", ingredientes: "Papas fritas crujientes cortadas rústicas, punto exacto de sal.", destacado: "" },
-            { id: 16, nombre: "Papas Fritas con Salsa Cheddar y Tocino", categoria: "papas", precio: "$4.500", ingredientes: "Papas fritas bañadas en salsa de queso cheddar fundido y crujientes trozos de tocino.", destacado: "Top" },
-            { id: 17, nombre: "Papas Fritas con Crema y Choclo", categoria: "papas", precio: "$4.200", ingredientes: "Papas fritas acompañadas de suave crema de choclo casera.", destacado: "" },
-            { id: 18, nombre: "Papas Fritas con Pollo Crispy", categoria: "papas", precio: "$5.200", ingredientes: "Crocantes papas fritas coronadas con trozos de pollo empanizado crujiente y salsas.", destacado: "" },
+            { id: 16, nombre: "Papas fritas individuales", categoria: "papas", precio: "$1.000", ingredientes: "Porción de papas fritas deliciosamente condimentadas. Perfecto para uno.", destacado: "" },
+            { id: 17, nombre: "Papas fritas para dos", categoria: "papas", precio: "$2.000", ingredientes: "Porción de papas fritas, deliciosamente condimentadas. Perfecto para compartir con alguien especial.", destacado: "Top" },
+            { id: 18, nombre: "Papas fritas con amigos", categoria: "papas", precio: "$4.000", ingredientes: "Porción de papas fritas, deliciosamente condimentadas. Perfectas para compartir con quienes más quieres.", destacado: "" },
+            { id: 19, nombre: "Papas fritas c/ salsa cheddar", categoria: "papas", precio: "$4.200", ingredientes: "Porción de papas fritas con salsa de queso cheddar, tocino a la plancha y ciboulette.", destacado: "" },
+            { id: 21, nombre: "Papas fritas c/ crema choclo ", categoria: "papas", precio: "$3.900", ingredientes: "Porción de papas fritas con crema, choclo y ciboulette. Deliciosas y cremosas.", destacado: "" },
+            { id: 22, nombre: "Papas fritas c/ pollo crispy ", categoria: "papas", precio: "$3.900", ingredientes: "Porción de papas fritas con pollo frito crujiente de la casa. Salsa de miel y mostaza.", destacado: "" },
+
 
             // ESPECIALES
-            { id: 19, nombre: "Chorrillana (Para 2)", categoria: "especiales", precio: "$8.500", ingredientes: "Papas fritas rústicas, carne salteada, cebolla frita dorada, huevo frito y ciboulette.", destacado: "Para compartir" },
-            { id: 20, nombre: "Chorrillana (Para 4)", categoria: "especiales", precio: "$11.500", ingredientes: "Papas fritas rústicas, carne salteada, cebolla frita dorada, huevo frito y ciboulette.", destacado: "Para compartir" },
-            { id: 21, nombre: "Chorrillana (Para 6)", categoria: "especiales", precio: "$15.000", ingredientes: "Papas fritas rústicas, carne salteada, cebolla frita dorada, huevo frito y ciboulette.", destacado: "Para compartir" },
-            { id: 22, nombre: "Pichanga (Para 2)", categoria: "especiales", precio: "$8.500", ingredientes: "Trozo de papas fritas, cubitos de carne, pollo, queso, jamón, pepinillos y aceitunas.", destacado: "Especial" },
-            { id: 22, nombre: "Pichanga (Para 4)", categoria: "especiales", precio: "$11.500", ingredientes: "Trozo de papas fritas, cubitos de carne, pollo, queso, jamón, pepinillos y aceitunas.", destacado: "Especial" },
-            { id: 22, nombre: "Pichanga (Para 6)", categoria: "especiales", precio: "$15.000", ingredientes: "Trozo de papas fritas, cubitos de carne, pollo, queso, jamón, pepinillos y aceitunas.", destacado: "Especial" }
+            { id: 20, nombre: "Chorrillana para dos", categoria: "especiales", precio: "$8.500", ingredientes: "Cama de papas fritas, carne de vacuno, huevo duro, queso mantecoso, pepinillo dill, tomate en medias lunas y láminas de palta.", destacado: "Para compartir" },
+            { id: 21, nombre: "Chorrillana para cuatro", categoria: "especiales", precio: "$11.500", ingredientes: "Cama de papas fritas, carne de vacuno, huevo duro, queso mantecoso, pepinillo dill, tomate en medias lunas y láminas de palta.", destacado: "Para compartir" },
+            { id: 22, nombre: "Chorrillana para seis", categoria: "especiales", precio: "$15.000", ingredientes: "Cama de papas fritas, carne de vacuno, huevo duro, queso mantecoso, pepinillo dill, tomate en medias lunas y láminas de palta.", destacado: "Para compartir" },
+            { id: 23, nombre: "Pichanga para dos", categoria: "especiales", precio: "$8.500", ingredientes: "Cama de papas fritas, carne de vacuno, carne de pollo, longaniza de la zona, salchicha sureña, huevo frito y cebolla caramelizada.", destacado: "Especial" },
+            { id: 24, nombre: "Pichanga para cuatro", categoria: "especiales", precio: "$11.500", ingredientes: "Cama de papas fritas, carne de vacuno, carne de pollo, longaniza de la zona, salchicha sureña, huevo frito y cebolla caramelizada.", destacado: "Especial" },
+            { id: 25, nombre: "Pichanga para seis", categoria: "especiales", precio: "$15.000", ingredientes: "Cama de papas fritas, carne de vacuno, carne de pollo, longaniza de la zona, salchicha sureña, huevo frito y cebolla caramelizada.", destacado: "Especial" }
         ];
 
         // Función para renderizar el menú
