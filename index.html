@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donde la Kothe - Cocina con Amor y Sabor</title>
+    <title>Donde la Kothe - Cocina con Sabor y Amor</title>
     <!-- Fuentes de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -305,7 +305,7 @@
         <div class="logo-container">
             <img src="Logo_DodeLaKothe_recortado-removebg-preview.png" alt="Donde la Kothe Logo" id="logo-img">
         </div>
-        <p class="tagline">✨ Cocina con amor y sabor ✨</p>
+        <p class="tagline">✨ Cocina con sabor y amor ✨</p>
         <!-- REDES SOCIALES -->
         <div class="social-links">
             <a href="https://www.instagram.com/dondelakothe/" target="_blank" class="social-btn" title="Instagram">
@@ -318,7 +318,7 @@
         <div class="address" style="margin-top: 15px; font-size: 0.9rem; color: var(--text-muted);">
             Víctor Jara 64, Cañete · Tel: <a href="tel:+56944371164" style="color: var(--accent-orange); text-decoration: none;">+56 9 4437 1164</a>  
         </div>
-        <a href="Donde_la_Kothe_menu_actualizado.html" target="_blank" style="display: inline-block; margin-top: 10px; font-size: 0.9rem; color: var(--accent-orange); text-decoration: underline;">Ver menú completo en PDF</a>
+        <a href="Donde_la_Kothe_menu_actualizado.html" target="_blank" style="display: inline-block; margin-top: 10px; font-size: 0.9rem; color: var(--accent-orange); text-decoration: underline;">Ver menú completo</a>
     </header>
 
     <!-- FILTROS POR CATEGORÍA -->
@@ -327,8 +327,7 @@
         <button class="category-btn" onclick="filterCategory('completos')">Completos</button>
         <button class="category-btn" onclick="filterCategory('churrascos')">Churrascos</button>
         <button class="category-btn" onclick="filterCategory('sandwiches')">Sándwiches</button>
-        <button class="category-btn" onclick="filterCategory('papas')">Papas Fritas</button>
-        <button class="category-btn" onclick="filterCategory('especiales')">Especiales</button>
+        <button class="category-btn" onclick="filterCategory('papas')">Papas y para compartir</button>
     </nav>
 
     <div class="container">
@@ -357,21 +356,21 @@
             { id: 2, nombre: "Completo Dinámico", categoria: "completos", precio: "$1.800", ingredientes: "Pan copihue artesanal, salchicha sureña, tomate picado, palta molida, chucrut, salsa verde (cilantro, cebolla, limón). ", destacado: "Popular" },
             { id: 3, nombre: "Completo Italiano", categoria: "completos", precio: "$1.800", ingredientes: "Pan copihue artesanal, salchicha sureña, tomate picado, palta molida, coronado con lactonesa de la casa.", destacado: "Favorito" },
             { id: 4, nombre: "Completo Palta/Tomate Mayo", categoria: "completos", precio: "$1.500", ingredientes: "Pan copihue artesanal, salchicha sureña, palta molida o tomate picado, deliciosa lactonesa de la casa.", destacado: "" },
-            { id: 5, nombre: "Completo Solo (Hot Dog)", categoria: "completos", precio: "$1.000", ingredientes: "Pan copihue artesanal, salchicha sureña, laconesa de la casa.", destacado: "" },
+            { id: 5, nombre: "Completo Solo (Hot Dog)", categoria: "completos", precio: "$1.000", ingredientes: "Pan copihue artesanal, salchicha sureña, lactonesa de la casa.", destacado: "" },
 
             // CHURRASCOS
             { id: 6, nombre: "Churrasco Barros Luco", categoria: "churrascos", precio: "$3.500", ingredientes: "Pan frica artesanal, churrasco de vacuno, láminas de queso derretidas. Acompañado de papas fritas.", destacado: "" },
-            { id: 7, nombre: "Churrasco Chacarero", categoria: "churrascos", precio: "$3.800", ingredientes: "Pan frica artesanal, churrasco de vacuno, rodajas de tomate, porotos verdes, rodajas de ají verde y lactonesa de la casa. Acompñado de papas fritas.", destacado: "" },
-            { id: 8, nombre: "Churrasco Italiano", categoria: "churrascos", precio: "$3.800", ingredientes: "Pan frica artesanal, churrasco de vacuno, rodajas de tomate, palta molida, lactonesa de la casa. Acompñado de papas fritas.", destacado: "Recomendado" },
+            { id: 7, nombre: "Churrasco Chacarero", categoria: "churrascos", precio: "$3.800", ingredientes: "Pan frica artesanal, churrasco de vacuno, rodajas de tomate, porotos verdes, rodajas de ají verde y lactonesa de la casa. Acompañado de papas fritas.", destacado: "" },
+            { id: 8, nombre: "Churrasco Italiano", categoria: "churrascos", precio: "$3.800", ingredientes: "Pan frica artesanal, churrasco de vacuno, rodajas de tomate, palta molida, lactonesa de la casa. Acompañado de papas fritas.", destacado: "Recomendado" },
             { id: 9, nombre: "Churrasco Palta/Tomate Mayo", categoria: "churrascos", precio: "$3.600", ingredientes: "Pan frica artesanal, churrasco de vacuno, palta molida o tomate en rodajas, deliciosa lactonesa de la casa. Acompañado de papas fritas.", destacado: "" },
 
             // SÁNDWICHES
-            { id: 10, nombre: "Sandwich Barros Luco", categoria: "sandwiches", precio: "$3.600", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, láminas de queso derretido. Acompñado de papas fritas. ", destacado: "" },
-            { id: 11, nombre: "Sandwich Chacarero", categoria: "sandwiches", precio: "$3.900", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, rodajas de tomate, porotos verdes, aji verde y lactonesa. Acompñado de papas fritas.", destacado: "" },
-            { id: 12, nombre: "Sandwich Con to'", categoria: "sandwiches", precio: "$3.900", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, rodajas de tomate, lechuga, aros de cebolla morada, pepinillo dill, lactonesa. Acompñado de papas fritas.", destacado: "" },
-            { id: 13, nombre: "Sandwich Italiano", categoria: "sandwiches", precio: "$3.900", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, palta molida, rodajas de tomate, lactonesa de la casa. Acompñado de papas fritas.", destacado: "" },
-            { id: 14, nombre: "Sándwich Jarpa", categoria: "sandwiches", precio: "$3.000", ingredientes: "Pan frica artesanal, láminas de jamón sandwich a la plancha, láminas de queso derretido. Acompñado de papas fritas.", destacado: "Clásico" },
-            { id: 15, nombre: "Sandwich Palta/Tomate Mayo", categoria: "sandwiches", precio: "$3.600", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, palta molida o tomate en rodajas, lactonesa de la casa. Acompñado de papas fritas.", destacado: "" },
+            { id: 10, nombre: "Sandwich Barros Luco", categoria: "sandwiches", precio: "$3.600", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, láminas de queso derretido. Acompañado de papas fritas. ", destacado: "" },
+            { id: 11, nombre: "Sandwich Chacarero", categoria: "sandwiches", precio: "$3.900", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, rodajas de tomate, porotos verdes, aji verde y lactonesa. Acompañado de papas fritas.", destacado: "" },
+            { id: 12, nombre: "Sandwich Con to'", categoria: "sandwiches", precio: "$3.900", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, rodajas de tomate, lechuga, aros de cebolla morada, pepinillo dill, lactonesa. Acompañado de papas fritas.", destacado: "" },
+            { id: 13, nombre: "Sandwich Italiano", categoria: "sandwiches", precio: "$3.900", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, palta molida, rodajas de tomate, lactonesa de la casa. Acompañado de papas fritas.", destacado: "" },
+            { id: 14, nombre: "Sándwich Jarpa", categoria: "sandwiches", precio: "$3.000", ingredientes: "Pan frica artesanal, láminas de jamón sandwich a la plancha, láminas de queso derretido. Acompañado de papas fritas.", destacado: "Clásico" },
+            { id: 15, nombre: "Sandwich Palta/Tomate Mayo", categoria: "sandwiches", precio: "$3.600", ingredientes: "Pan frica artesanal, hamburguesa casera o filetillo de pollo, palta molida o tomate en rodajas, lactonesa de la casa. Acompañado de papas fritas.", destacado: "" },
 
             // PAPAS FRITAS
             { id: 16, nombre: "Papas fritas individuales", categoria: "papas", precio: "$1.000", ingredientes: "Porción de papas fritas deliciosamente condimentadas. Perfecto para uno.", destacado: "" },
@@ -380,12 +379,10 @@
             { id: 19, nombre: "Papas fritas c/ salsa cheddar", categoria: "papas", precio: "$4.200", ingredientes: "Porción de papas fritas con salsa de queso cheddar, tocino a la plancha y ciboulette.", destacado: "" },
             { id: 21, nombre: "Papas fritas c/ crema choclo ", categoria: "papas", precio: "$3.900", ingredientes: "Porción de papas fritas con crema, choclo y ciboulette. Deliciosas y cremosas.", destacado: "" },
             { id: 22, nombre: "Papas fritas c/ pollo crispy ", categoria: "papas", precio: "$3.900", ingredientes: "Porción de papas fritas con pollo frito crujiente de la casa. Salsa de miel y mostaza.", destacado: "" },
-
-
-            // ESPECIALES
-            { id: 23, nombre: "Pichanga para dos", categoria: "especiales", precio: "$8.500", ingredientes: "Cama de papas fritas, carne de vacuno, carne de pollo, longaniza de la zona, salchicha sureña, huevo frito y cebolla caramelizada.", destacado: "Especial" },
-            { id: 24, nombre: "Pichanga para cuatro", categoria: "especiales", precio: "$11.500", ingredientes: "Cama de papas fritas, carne de vacuno, carne de pollo, longaniza de la zona, salchicha sureña, huevo frito y cebolla caramelizada.", destacado: "Especial" },
-            { id: 25, nombre: "Pichanga para seis", categoria: "especiales", precio: "$15.000", ingredientes: "Cama de papas fritas, carne de vacuno, carne de pollo, longaniza de la zona, salchicha sureña, huevo frito y cebolla caramelizada.", destacado: "Especial" }
+            { id: 26, nombre: "Salchipapas", categoria: "papas", precio: "$1.800", ingredientes: "Nuestras exquisitas papas fritas ahora con salchicha sureña.", destacado: "" },
+            { id: 23, nombre: "Pichanga para dos", categoria: "papas", precio: "$8.500", ingredientes: "Cama de papas fritas, carne de vacuno, carne de pollo, longaniza de la zona, salchicha sureña, huevo frito y cebolla caramelizada.", destacado: "Especial" },
+            { id: 24, nombre: "Pichanga para cuatro", categoria: "papas", precio: "$11.500", ingredientes: "Cama de papas fritas, carne de vacuno, carne de pollo, longaniza de la zona, salchicha sureña, huevo frito y cebolla caramelizada.", destacado: "Especial" },
+            { id: 25, nombre: "Pichanga para seis", categoria: "papas", precio: "$15.000", ingredientes: "Cama de papas fritas, carne de vacuno, carne de pollo, longaniza de la zona, salchicha sureña, huevo frito y cebolla caramelizada.", destacado: "Especial" }
         ];
 
         // Función para renderizar el menú
@@ -397,8 +394,7 @@
                 'completos': 'Completos',
                 'churrascos': 'Churrascos',
                 'sandwiches': 'Sándwiches',
-                'papas': 'Papas Fritas',
-                'especiales': 'Platos Especiales'
+                'papas': 'Papas y para compartir'
             };
 
             const categoriesToDisplay = filter === 'todos' 
@@ -420,7 +416,6 @@
                 if(cat === 'churrascos') iconClass = 'fa-bacon';
                 if(cat === 'sandwiches') iconClass = 'fa-burger';
                 if(cat === 'papas') iconClass = 'fa-bowl-food';
-                if(cat === 'especiales') iconClass = 'fa-drumstick-bite';
 
                 catTitle.innerHTML = `<i class="fa-solid ${iconClass}"></i> ${categoryNames[cat]}`;
                 section.appendChild(catTitle);

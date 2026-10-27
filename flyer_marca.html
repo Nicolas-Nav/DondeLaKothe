@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donde la Kothe - Flyer de marca</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* --u es 1% del ancho del flyer: todo escala igual en pantalla (1080x1350) y en A4 */
+:root{--paper:#e9d8c4;--card:#fffdf9;--brown:#4a2e18;--orange:#c85a28;--green:#5a7042;--ink:#2d1e13;--u:10.8px;--h:1350px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:Nunito,sans-serif}
+.flyer{width:calc(var(--u)*100);height:var(--h);margin:auto;background:var(--paper);border:calc(var(--u)*.8) solid var(--brown);outline:calc(var(--u)*.22) dashed var(--orange);outline-offset:calc(var(--u)*-1.8);border-radius:calc(var(--u)*2.6);padding:calc(var(--u)*4) calc(var(--u)*6) calc(var(--u)*3.6);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+
+.brand{text-align:center}
+.brand img{width:calc(var(--u)*44);height:auto;display:block;margin:0 auto}
+.intro{font:600 calc(var(--u)*2.45)/1.4 Nunito;color:var(--brown);max-width:calc(var(--u)*76);margin:calc(var(--u)*1.2) auto 0}
+.intro strong{color:var(--orange)}
+
+.label{font:600 calc(var(--u)*3) Fredoka;color:var(--brown);text-align:center;display:flex;align-items:center;gap:calc(var(--u)*2)}
+.label::before,.label::after{content:"";flex:1;border-top:calc(var(--u)*.25) dashed #c9ac8f}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*2.4);margin-top:calc(var(--u)*2)}
+.product{background:var(--card);border-radius:calc(var(--u)*2);padding:calc(var(--u)*2.6) calc(var(--u)*1.6);text-align:center;box-shadow:0 calc(var(--u)*.6) calc(var(--u)*1.6) #4a2e1822;border-bottom:calc(var(--u)*.6) solid var(--orange)}
+.product i{font-size:calc(var(--u)*5.4);color:var(--orange)}
+.product h3{font:700 calc(var(--u)*3.1) Fredoka;color:var(--brown);margin-top:calc(var(--u)*1)}
+.product p{font:600 calc(var(--u)*1.75)/1.35 Nunito;color:#6e5a4b;margin-top:calc(var(--u)*.6)}
+
+.info{background:var(--brown);color:#fff;border-radius:calc(var(--u)*2.2);padding:calc(var(--u)*3) calc(var(--u)*3.4);display:grid;grid-template-columns:1fr 1fr auto;gap:calc(var(--u)*3);align-items:center}
+.info h4{font:600 calc(var(--u)*1.8) Fredoka;color:#f0b48f;text-transform:uppercase;letter-spacing:calc(var(--u)*.15);display:flex;align-items:center;gap:calc(var(--u)*1)}
+.info .big{font:700 calc(var(--u)*3.1)/1.15 Fredoka;margin-top:calc(var(--u)*.6)}
+.info .small{font:700 calc(var(--u)*1.75) Nunito;color:#ead8c6;margin-top:calc(var(--u)*.4)}
+.qr{text-align:center;font:800 calc(var(--u)*1.4) Nunito;color:#ead8c6}
+.qr img{width:calc(var(--u)*13);height:calc(var(--u)*13);display:block;background:#fff;padding:calc(var(--u)*.7);border-radius:calc(var(--u)*1);margin-bottom:calc(var(--u)*.6)}
+
+.contact{display:flex;justify-content:center;gap:calc(var(--u)*5);font:700 calc(var(--u)*2.3) Fredoka;color:var(--brown)}
+.contact span{display:flex;align-items:center;gap:calc(var(--u)*1)}
+.contact i{color:var(--orange);font-size:calc(var(--u)*2.8)}
+
+@page{size:A4;margin:8mm}
+@media print{
+  :root{--u:1.94mm;--h:281mm}
+  body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .brand img{width:calc(var(--u)*50)}
+}
+</style>
+</head>
+<body>
+<div class="flyer">
+
+  <div class="brand">
+    <img src="Logo_DodeLaKothe_recortado-removebg-preview.png" alt="Logo Donde la Kothe">
+    <p class="intro">Comida rica hecha en casa, con <strong>pan artesanal</strong>, <strong>salchicha sureña</strong> y nuestra <strong>lactonesa de la casa</strong>. Para darte un gusto solo o compartir con los tuyos.</p>
+  </div>
+
+  <div>
+    <div class="label">Lo que te espera</div>
+    <div class="products">
+      <div class="product">
+        <i class="fa-solid fa-hotdog"></i>
+        <h3>Completos</h3>
+        <p>En pan copihue artesanal: italiano, alemán, dinámico y más</p>
+      </div>
+      <div class="product">
+        <i class="fa-solid fa-bowl-food"></i>
+        <h3>Papas fritas</h3>
+        <p>Individuales o para compartir, con cheddar, crema choclo o pollo crispy</p>
+      </div>
+      <div class="product">
+        <i class="fa-solid fa-drumstick-bite"></i>
+        <h3>Pichangas</h3>
+        <p>Para 2, 4 o 6 personas, con vacuno, pollo, longaniza y huevo frito</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="info">
+    <div>
+      <h4><i class="fa-regular fa-clock"></i> Horario</h4>
+      <div class="big">17:00 a 23:00</div>
+      <div class="small">Todos los días</div>
+    </div>
+    <div>
+      <h4><i class="fa-solid fa-location-dot"></i> Dónde estamos</h4>
+      <div class="big">Víctor Jara 64</div>
+      <div class="small">Cañete</div>
+    </div>
+    <div class="qr">
+      <img src="qr_instagram.png" alt="QR Instagram">
+      Síguenos
+    </div>
+  </div>
+
+  <div class="contact">
+    <span><i class="fa-brands fa-whatsapp"></i> +56 9 4437 1164</span>
+    <span><i class="fa-brands fa-instagram"></i> @dondelakothe</span>
+  </div>
+
+</div>
+</body>
+</html>
