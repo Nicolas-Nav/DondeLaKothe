@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donde la Kothe - Flyer de horario</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Formato segun el hash de la URL: #historia (1080x1920) o #cuadrado (1080x1080) */
+:root{--paper:#f1e3cf;--card:#fffaf2;--brown:#4a2e18;--orange:#c85a28;--orange-dark:#9c4119;--green:#5a7042;--cream:#fff4e4}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper)}
+.flyer{width:1080px;height:1920px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;padding:70px 80px;
+  background:
+    radial-gradient(circle at 20% 15%,#f7ecdc 0,transparent 45%),
+    radial-gradient(circle at 85% 80%,#e9d5bb 0,transparent 50%),
+    var(--paper)}
+.flyer::before{content:"";position:absolute;inset:0;opacity:.35;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .15 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+.flyer::after{content:"";position:absolute;inset:26px;border:4px dashed rgba(200,90,40,.45);border-radius:36px;pointer-events:none}
+.flyer > *{position:relative;z-index:1}
+
+.logo{width:600px;height:auto;display:block}
+.top{display:flex;align-items:center;justify-content:center;gap:30px}
+.side{display:none}
+
+
+.ribbon{position:relative;width:920px;height:250px}
+.ribbon svg{position:absolute;inset:0;width:100%;height:100%}
+.ribbon span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-bottom:14px;
+  font:700 150px/1 Fredoka;color:var(--cream);-webkit-text-stroke:9px var(--brown);paint-order:stroke fill;letter-spacing:1px}
+
+.box{width:920px;background:var(--card);border:5px solid var(--orange);border-radius:46px;padding:46px 40px 50px;text-align:center;position:relative;box-shadow:0 10px 0 rgba(74,46,24,.12)}
+.box::before{content:"";position:absolute;inset:14px;border:3px dashed rgba(200,90,40,.6);border-radius:34px}
+.box .l1{font:600 62px/1.15 Fredoka;color:var(--brown)}
+.box .l2{font:700 70px/1.1 Fredoka;color:var(--brown);margin-top:14px;white-space:nowrap}
+.box .l2 b{font-size:132px;color:var(--orange)}
+.box .l2 em{font-style:normal;color:var(--orange)}
+
+.banner{position:relative;width:980px;height:200px}
+.banner svg{position:absolute;inset:0;width:100%;height:100%}
+.banner span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-bottom:8px;
+  font:700 104px/1 Fredoka;color:var(--cream);-webkit-text-stroke:5px var(--brown);paint-order:stroke fill}
+
+.sprig{width:520px;height:110px}
+
+.contact{font:800 34px Nunito;color:var(--brown);letter-spacing:.5px}
+.contact i{font-style:normal;color:var(--orange)}
+
+/* Recorta el texto a la altura de las mayusculas para que quede centrado de verdad en las cintas */
+.ribbon span b,.banner span b{font-weight:inherit;display:block;text-box:trim-both cap alphabetic}
+
+.socials{display:none}
+
+/* Cuadrado */
+body.cuadrado .flyer{height:1080px;padding:60px 70px;justify-content:center;gap:20px}
+body.cuadrado .logo{width:300px}
+body.cuadrado .sprig,body.cuadrado .contact{display:none}
+body.cuadrado .ribbon{height:224px;width:920px;margin-top:0}
+body.cuadrado .ribbon span{font-size:108px;-webkit-text-stroke:8px var(--brown);padding-bottom:0;top:-7px}
+body.cuadrado .box{width:820px;padding:26px 30px 30px;border-radius:40px}
+body.cuadrado .box .l1{font-size:48px}
+body.cuadrado .box .l2{font-size:54px;margin-top:4px}
+body.cuadrado .box .l2 b{font-size:100px}
+body.cuadrado .banner{height:130px;width:860px}
+body.cuadrado .banner span{font-size:74px;padding-bottom:0}
+body.cuadrado .socials{display:flex;gap:44px;font:700 32px Nunito;color:var(--brown)}
+.socials span{display:flex;align-items:center;gap:14px}
+.socials .btn{width:58px;height:58px;border-radius:50%;background:var(--brown);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,.15)}
+.socials .btn svg{width:28px;height:28px;fill:#fff}
+.ex{display:inline-block;margin-right:.09em;text-decoration:none;position:static}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="heart" viewBox="0 0 100 90"><path d="M50 86C20 62 4 46 4 27 4 13 15 4 28 4c10 0 17 6 22 14C55 10 62 4 72 4c13 0 24 9 24 23 0 19-16 35-46 59z" fill="#c85a28" stroke="#4a2e18" stroke-width="4"/></symbol>
+    <symbol id="leaf-branch" viewBox="0 0 200 80">
+      <path d="M195 40C150 40 90 42 10 40" stroke="#5a7042" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <g fill="#5a7042">
+        <ellipse cx="150" cy="24" rx="20" ry="9" transform="rotate(-30 150 24)"/>
+        <ellipse cx="150" cy="56" rx="20" ry="9" transform="rotate(30 150 56)"/>
+        <ellipse cx="100" cy="24" rx="20" ry="9" transform="rotate(-30 100 24)"/>
+        <ellipse cx="100" cy="56" rx="20" ry="9" transform="rotate(30 100 56)"/>
+        <ellipse cx="50" cy="26" rx="18" ry="8" transform="rotate(-30 50 26)"/>
+        <ellipse cx="50" cy="54" rx="18" ry="8" transform="rotate(30 50 54)"/>
+        <ellipse cx="14" cy="40" rx="16" ry="7"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="flyer">
+
+  <img class="logo" src="Logo_DodeLaKothe_recortado-removebg-preview.png" alt="Logo Donde la Kothe">
+
+  <div class="ribbon">
+    <svg viewBox="0 0 920 250" preserveAspectRatio="none">
+      <path d="M0 95 L150 95 L150 225 L0 225 L45 160 Z" fill="#9c4119" stroke="#4a2e18" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M920 95 L770 95 L770 225 L920 225 L875 160 Z" fill="#9c4119" stroke="#4a2e18" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M150 225 L110 205 L150 195 Z M770 225 L810 205 L770 195 Z" fill="#6e2c10" stroke="#4a2e18" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M110 30 Q460 -5 810 30 L810 205 Q460 170 110 205 Z" fill="#c85a28" stroke="#4a2e18" stroke-width="7" stroke-linejoin="round"/>
+      <path d="M132 50 Q460 18 788 50" fill="none" stroke="#e48a5c" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+    </svg>
+    <span><b>Horario</b></span>
+  </div>
+
+  <div class="box">
+    <div class="l1">Abierto de lunes a domingo,</div>
+    <div class="l2">de <b>17</b> <em>hrs</em> a <b>23</b> <em>hrs</em></div>
+  </div>
+
+  <div class="banner">
+    <svg viewBox="0 0 980 200" preserveAspectRatio="none">
+      <path d="M20 22 L960 10 L925 100 L965 190 L25 182 L60 100 Z" fill="#c85a28" stroke="#4a2e18" stroke-width="7" stroke-linejoin="round"/>
+      <path d="M80 42 L900 32" stroke="#e48a5c" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+    </svg>
+    <span><b><u class="ex">¡</u>Ven a disfrutar!</b></span>
+  </div>
+
+  <div class="socials">
+    <span><i class="btn"><svg viewBox="0 0 384 512"><path d="M172 501C27 291 0 269 0 192 0 86 86 0 192 0s192 86 192 192c0 77-27 99-172 309a24 24 0 0 1-40 0zm20-229a80 80 0 1 0 0-160 80 80 0 0 0 0 160z"/></svg></i>Víctor Jara 64, Cañete</span>
+    <span><i class="btn"><svg viewBox="0 0 448 512"><path d="M224 141c-64 0-115 51-115 115s51 115 115 115 115-51 115-115-51-115-115-115zm0 190c-41 0-75-34-75-75s34-75 75-75 75 34 75 75-34 75-75 75zm146-194c0 15-12 27-27 27s-27-12-27-27 12-27 27-27 27 12 27 27zm76 27c-2-36-10-68-36-94s-58-34-94-36c-37-2-148-2-185 0-36 2-68 10-94 36S3 128 1 164c-2 37-2 148 0 185 2 36 10 68 36 94s58 34 94 36c37 2 148 2 185 0 36-2 68-10 94-36s34-58 36-94c2-37 2-148 0-185zm-48 225c-8 20-23 35-43 43-30 12-101 9-134 9s-104 3-134-9c-20-8-35-23-43-43-12-30-9-101-9-134s-3-104 9-134c8-20 23-35 43-43 30-12 101-9 134-9s104-3 134 9c20 8 35 23 43 43 12 30 9 101 9 134s3 104-9 134z"/></svg></i>@dondelakothe</span>
+  </div>
+
+  <svg class="sprig" viewBox="0 0 520 110">
+    <use href="#leaf-branch" x="20" y="15" width="200" height="80"/>
+    <use href="#heart" x="215" y="12" width="90" height="81"/>
+    <use href="#leaf-branch" width="200" height="80" transform="translate(500 15) scale(-1 1)"/>
+  </svg>
+
+  <div class="contact">Víctor Jara 64, Cañete <i>·</i> WhatsApp +56 9 4437 1164</div>
+
+</div>
+<script>
+  document.body.className = location.hash === '#cuadrado' ? 'cuadrado' : 'historia';
+</script>
+</body>
+</html>

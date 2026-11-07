@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donde la Kothe - Historias destacadas</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Cada historia es 1080x1920 y se elige con el hash de la URL, por ejemplo #portada-horario o #menu-completos */
+:root{--paper:#f1e3cf;--card:#fffaf2;--brown:#4a2e18;--orange:#c85a28;--orange-dark:#9c4119;--green:#5a7042;--cream:#fff4e4;--muted:#6e5a4b}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper)}
+.slide{width:1080px;height:1920px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;padding:90px 80px;
+  background:
+    radial-gradient(circle at 20% 15%,#f7ecdc 0,transparent 45%),
+    radial-gradient(circle at 85% 80%,#e9d5bb 0,transparent 50%),
+    var(--paper)}
+.slide::before{content:"";position:absolute;inset:0;opacity:.35;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .15 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+.slide::after{content:"";position:absolute;inset:26px;border:4px dashed rgba(200,90,40,.45);border-radius:36px;pointer-events:none}
+.slide > *{position:relative;z-index:1}
+
+.logo{width:250px;height:auto;display:block}
+.ex{display:inline-block;margin-right:.09em;text-decoration:none}
+
+/* Portadas: Instagram recorta el centro en circulo, por eso el icono va al medio */
+.badge-circle{width:700px;height:700px;border-radius:50%;background:var(--card);border:16px solid var(--brown);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 16px 0 rgba(74,46,24,.15)}
+.badge-circle::before{content:"";position:absolute;inset:26px;border:5px dashed rgba(200,90,40,.6);border-radius:50%}
+.badge-circle svg{width:430px;height:430px}
+.slide.cover{justify-content:center}
+.slide.cover .logo{position:absolute;top:150px;left:50%;transform:translateX(-50%)}
+.slide.cover .cover-text{position:absolute;top:1400px;left:0;right:0}
+.roomy .item{padding:30px 0}
+.roomy .item .name{font-size:60px}
+.roomy .item .price{font-size:64px}
+.roomy .item .desc{font-size:35px}
+.cover-title{font:700 120px/1 Fredoka;color:var(--brown);text-align:center}
+.cover-sub{font:700 40px Nunito;color:var(--orange);margin-top:18px;text-align:center}
+
+.ribbon{position:relative;width:920px;height:224px}
+.ribbon svg{position:absolute;inset:0;width:100%;height:100%}
+.ribbon span{position:absolute;inset:0;top:-7px;display:flex;align-items:center;justify-content:center;
+  font:700 100px/1 Fredoka;color:var(--cream);-webkit-text-stroke:8px var(--brown);paint-order:stroke fill}
+.ribbon span b{font-weight:inherit;display:block;text-box:trim-both cap alphabetic}
+
+.card{width:920px;background:var(--card);border:5px solid var(--orange);border-radius:46px;padding:34px 50px;position:relative;box-shadow:0 10px 0 rgba(74,46,24,.12)}
+.card::before{content:"";position:absolute;inset:14px;border:3px dashed rgba(200,90,40,.55);border-radius:34px;pointer-events:none}
+.item{padding:20px 0;border-bottom:3px dotted #d8c3ad}
+.item:last-child{border-bottom:none}
+.item .row{display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+.item .name{font:700 50px/1.1 Fredoka;color:var(--brown)}
+.item .price{font:700 54px/1 Fredoka;color:var(--orange);white-space:nowrap}
+.item .desc{font:600 29px/1.35 Nunito;color:var(--muted);margin-top:6px}
+.big-items .item{padding:30px 0}
+.big-items .item .name{font-size:62px}
+.big-items .item .price{font-size:70px}
+.note{font:700 34px/1.35 Nunito;color:var(--brown);text-align:center;max-width:880px}
+.note b{color:var(--orange)}
+
+.wa{display:flex;align-items:center;gap:22px;background:var(--card);border:5px solid var(--orange);border-radius:999px;padding:18px 44px 18px 22px;box-shadow:0 8px 0 rgba(74,46,24,.12)}
+.wa .ico{width:84px;height:84px;border-radius:50%;background:#25D366;border:5px solid var(--brown);display:flex;align-items:center;justify-content:center}
+.wa .ico i{color:#fff;font-size:50px}
+.wa .t1{font:800 28px Nunito;color:var(--orange);text-transform:uppercase;letter-spacing:1px}
+.wa .t2{font:700 56px/1.05 Fredoka;color:var(--brown)}
+
+/* Producto destacado */
+.food-circle{width:520px;height:520px;border-radius:50%;background:var(--card);border:12px solid var(--brown);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 14px 0 rgba(74,46,24,.15)}
+.food-circle::before{content:"";position:absolute;inset:22px;border:4px dashed rgba(200,90,40,.6);border-radius:50%}
+.food-circle i{font-size:250px;color:var(--orange)}
+.tag{display:inline-block;background:var(--green);color:#fff;font:800 34px Nunito;text-transform:uppercase;letter-spacing:2px;padding:10px 30px;border-radius:999px;border:4px solid var(--brown)}
+.prod-name{font:700 104px/1.05 Fredoka;color:var(--brown);text-align:center;margin-top:24px}
+.prod-price{font:700 120px/1 Fredoka;color:var(--orange);text-align:center;margin-top:10px}
+.prod-desc{font:600 40px/1.4 Nunito;color:var(--muted);text-align:center}
+.center{text-align:center}
+
+/* Formato publicacion 4:5 (1080x1350), se activa con ?f=post en la URL */
+body.post .slide{height:1350px;padding:70px}
+body.post .logo{width:190px}
+body.post .menu-slide .logo{display:none}
+body.post .ribbon{width:860px;height:196px}
+body.post .ribbon span{font-size:86px}
+body.post .card{width:880px;padding:22px 44px}
+body.post .item{padding:14px 0}
+body.post .item .name{font-size:44px}
+body.post .item .price{font-size:48px}
+body.post .item .desc{font-size:27px}
+body.post .roomy .item{padding:22px 0}
+body.post .roomy .item .name{font-size:52px}
+body.post .roomy .item .price{font-size:56px}
+body.post .roomy .item .desc{font-size:31px}
+body.post .big-items .item .name{font-size:56px}
+body.post .big-items .item .price{font-size:62px}
+body.post .note{font-size:30px}
+body.post .wa{padding:12px 36px 12px 16px;gap:18px}
+body.post .wa .ico{width:66px;height:66px}
+body.post .wa .ico i{font-size:38px}
+body.post .wa .t1{font-size:22px}
+body.post .wa .t2{font-size:44px}
+body.post .food-circle{width:400px;height:400px;border-width:10px}
+body.post .food-circle i{font-size:190px}
+body.post .tag{font-size:28px;padding:8px 26px}
+body.post .prod-name{font-size:84px;margin-top:18px}
+body.post .prod-price{font-size:96px}
+body.post .prod-desc{font-size:34px}
+body.post .slide.cover .logo{top:100px}
+body.post .badge-circle{width:560px;height:560px;border-width:13px}
+body.post .badge-circle svg{width:340px;height:340px}
+body.post .slide.cover .cover-text{top:1010px}
+body.post .cover-title{font-size:100px}
+body.post .cover-sub{font-size:36px}
+
+.place-big{font:700 104px/1 Fredoka;color:var(--brown);text-align:center}
+.place-sub{font:700 48px Fredoka;color:var(--orange);text-align:center;margin-top:12px}
+body.post .place-big{font-size:92px}
+
+.handle{font:700 96px/1 Fredoka;color:var(--orange);text-align:center;margin-top:20px}
+.thanks{font:600 52px/1.3 Fredoka;color:var(--brown);text-align:center}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="ribbon-shape" viewBox="0 0 920 250">
+      <path d="M0 95 L150 95 L150 225 L0 225 L45 160 Z" fill="#9c4119" stroke="#4a2e18" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M920 95 L770 95 L770 225 L920 225 L875 160 Z" fill="#9c4119" stroke="#4a2e18" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M150 225 L110 205 L150 195 Z M770 225 L810 205 L770 195 Z" fill="#6e2c10" stroke="#4a2e18" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M110 30 Q460 -5 810 30 L810 205 Q460 170 110 205 Z" fill="#c85a28" stroke="#4a2e18" stroke-width="7" stroke-linejoin="round"/>
+      <path d="M132 50 Q460 18 788 50" fill="none" stroke="#e48a5c" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+    </symbol>
+
+    <!-- Iconos de portada, mismo trazo que el reloj del flyer de horario -->
+    <symbol id="ico-horario" viewBox="0 0 260 260">
+      <circle cx="130" cy="130" r="120" fill="#fffaf2" stroke="#4a2e18" stroke-width="9"/>
+      <g stroke="#4a2e18" stroke-width="9" stroke-linecap="round">
+        <line x1="130" y1="32" x2="130" y2="46"/><line x1="228" y1="130" x2="214" y2="130"/>
+        <line x1="130" y1="228" x2="130" y2="214"/><line x1="32" y1="130" x2="46" y2="130"/>
+      </g>
+      <g fill="#c85a28">
+        <circle cx="177" cy="48.6" r="5"/><circle cx="211.4" cy="83" r="5"/><circle cx="211.4" cy="177" r="5"/><circle cx="177" cy="211.4" r="5"/>
+        <circle cx="83" cy="211.4" r="5"/><circle cx="48.6" cy="177" r="5"/><circle cx="48.6" cy="83" r="5"/><circle cx="83" cy="48.6" r="5"/>
+      </g>
+      <line x1="130" y1="130" x2="130" y2="62" stroke="#4a2e18" stroke-width="9" stroke-linecap="round"/>
+      <line x1="130" y1="130" x2="157" y2="177" stroke="#c85a28" stroke-width="14" stroke-linecap="round"/>
+      <circle cx="130" cy="130" r="12" fill="#fffaf2" stroke="#4a2e18" stroke-width="6"/>
+    </symbol>
+    <symbol id="ico-menu" viewBox="0 0 260 260">
+      <rect x="55" y="22" width="150" height="216" rx="18" fill="#fffaf2" stroke="#4a2e18" stroke-width="9"/>
+      <path d="M55 78 V40 a18 18 0 0 1 18-18 h114 a18 18 0 0 1 18 18 V78 Z" fill="#c85a28" stroke="#4a2e18" stroke-width="9" stroke-linejoin="round"/>
+      <g stroke="#4a2e18" stroke-width="9" stroke-linecap="round">
+        <line x1="80" y1="112" x2="146" y2="112"/><line x1="80" y1="150" x2="146" y2="150"/><line x1="80" y1="188" x2="146" y2="188"/>
+      </g>
+      <g fill="#c85a28"><circle cx="176" cy="112" r="7"/><circle cx="176" cy="150" r="7"/><circle cx="176" cy="188" r="7"/></g>
+    </symbol>
+    <symbol id="ico-productos" viewBox="0 0 260 260">
+      <g transform="rotate(-18 130 130)" stroke="#4a2e18" stroke-width="9" stroke-linejoin="round">
+        <rect x="42" y="92" width="176" height="66" rx="33" fill="#e3a868"/>
+        <rect x="26" y="112" width="208" height="42" rx="21" fill="#c85a28"/>
+        <rect x="42" y="134" width="176" height="62" rx="31" fill="#eab676"/>
+        <polyline points="58,124 78,114 98,124 118,114 138,124 158,114 178,124 198,114" fill="none" stroke="#fff4e4" stroke-width="7" stroke-linecap="round"/>
+      </g>
+    </symbol>
+    <symbol id="ico-clientes" viewBox="0 0 260 260">
+      <polygon points="130,30 158.2,96.2 229.9,102.6 175.6,149.8 191.7,220 130,183 68.3,220 84.4,149.8 30.1,102.6 101.8,96.2" fill="#c85a28" stroke="#4a2e18" stroke-width="9" stroke-linejoin="round"/>
+      <circle cx="113" cy="128" r="8" fill="#4a2e18"/><circle cx="147" cy="128" r="8" fill="#4a2e18"/>
+      <path d="M110 150 Q130 170 150 150" fill="none" stroke="#4a2e18" stroke-width="7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="ico-ubicacion" viewBox="0 0 260 260">
+      <ellipse cx="130" cy="232" rx="58" ry="14" fill="#e3c9ab"/>
+      <path d="M130 228 C130 228 50 150 50 102 a80 80 0 0 1 160 0 C210 150 130 228 130 228 Z" fill="#c85a28" stroke="#4a2e18" stroke-width="9" stroke-linejoin="round"/>
+      <circle cx="130" cy="102" r="32" fill="#fffaf2" stroke="#4a2e18" stroke-width="8"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="slide" id="slide"></div>
+
+<script>
+const LOGO = '<img class="logo" src="Logo_DodeLaKothe_recortado-removebg-preview.png" alt="Logo Donde la Kothe">';
+const WA = (t1) => `<div class="wa"><div class="ico"><i class="fa-brands fa-whatsapp"></i></div><div><div class="t1">${t1}</div><div class="t2">+56 9 4437 1164</div></div></div>`;
+const RIBBON = (txt) => `<div class="ribbon"><svg viewBox="0 0 920 250" preserveAspectRatio="none"><use href="#ribbon-shape"/></svg><span><b>${txt}</b></span></div>`;
+
+const portadas = {
+  horario:   { icon: 'ico-horario',   titulo: 'Horario',   sub: 'Todos los días de 17 a 23 hrs' },
+  menu:      { icon: 'ico-menu',      titulo: 'Menú',      sub: 'Completos, churrascos, sándwiches y más' },
+  productos: { icon: 'ico-productos', titulo: 'Productos', sub: 'Los favoritos de la casa' },
+  clientes:  { icon: 'ico-clientes',  titulo: 'Clientes<br>Satisfechos', sub: 'Gracias por preferirnos' },
+  carta:     { icon: 'ico-menu',      titulo: 'Nuestro menú', sub: 'Desliza para verlo completo' }
+};
+
+// Precios e ingredientes tomados de index.html
+const menu = {
+  completos: { titulo: 'Completos', items: [
+    ['Completo Alemán', '$1.800', 'Tomate picado, chucrut y lactonesa de la casa.'],
+    ['Completo Dinámico', '$1.800', 'Tomate, palta, chucrut y salsa verde (cilantro, cebolla, limón).'],
+    ['Completo Italiano', '$1.800', 'Tomate picado, palta molida y lactonesa de la casa.'],
+    ['Completo Palta/Tomate Mayo', '$1.500', 'Palta molida o tomate picado con lactonesa de la casa.'],
+    ['Completo Solo', '$1.000', 'Salchicha sureña y lactonesa de la casa.']
+  ], nota: 'Todos en <b>pan copihue artesanal</b> con <b>salchicha sureña</b>.' },
+  churrascos: { titulo: 'Churrascos', items: [
+    ['Churrasco Barros Luco', '$3.500', 'Churrasco de vacuno y queso derretido.'],
+    ['Churrasco Chacarero', '$3.800', 'Tomate, porotos verdes, ají verde y lactonesa.'],
+    ['Churrasco Italiano', '$3.800', 'Tomate en rodajas, palta molida y lactonesa.'],
+    ['Churrasco Palta/Tomate Mayo', '$3.600', 'Palta molida o tomate con lactonesa de la casa.']
+  ], nota: 'En <b>pan frica artesanal</b>. Todos acompañados de <b>papas fritas</b>.' },
+  sandwiches: { titulo: 'Sándwiches', items: [
+    ['Sándwich Barros Luco', '$3.600', 'Con queso derretido.'],
+    ['Sándwich Chacarero', '$3.900', 'Tomate, porotos verdes, ají verde y lactonesa.'],
+    ["Sándwich Con to'", '$3.900', 'Tomate, lechuga, cebolla morada, pepinillo dill y lactonesa.'],
+    ['Sándwich Italiano', '$3.900', 'Palta molida, tomate y lactonesa de la casa.'],
+    ['Sándwich Jarpa', '$3.000', 'Jamón a la plancha y queso derretido.'],
+    ['Sándwich Palta/Tomate Mayo', '$3.600', 'Palta o tomate con lactonesa de la casa.']
+  ], nota: 'Elige <b>hamburguesa casera de vacuno</b> o <b>filetillo de pollo</b>. En pan frica artesanal y acompañados de <b>papas fritas</b>.' },
+  papas: { titulo: 'Papas fritas', items: [
+    ['Papas individuales', '$1.000', 'Condimentadas, perfectas para uno.'],
+    ['Papas para dos', '$2.000', 'Para compartir con alguien especial.'],
+    ['Papas con amigos', '$4.000', 'Para compartir con quienes más quieres.'],
+    ['Salchipapas', '$1.800', 'Nuestras papas fritas con salchicha sureña.'],
+    ['Papas c/ salsa cheddar', '$4.200', 'Cheddar, tocino a la plancha y ciboulette.'],
+    ['Papas c/ crema choclo', '$3.900', 'Crema, choclo y ciboulette.'],
+    ['Papas c/ pollo crispy', '$3.900', 'Pollo crujiente con salsa de miel y mostaza.']
+  ] },
+  pichangas: { titulo: 'Pichangas', big: true, items: [
+    ['Pichanga para dos', '$8.500'],
+    ['Pichanga para cuatro', '$11.500'],
+    ['Pichanga para seis', '$15.000']
+  ], nota: 'Cama de papas fritas, <b>carne de vacuno</b>, <b>carne de pollo</b>, palta en rodajas, tomate en gajos, queso y pepinillo dill.' }
+};
+
+// Destacados con las etiquetas que ya usa la web
+const productos = {
+  italiano:    { icon: 'fa-hotdog', tag: 'Favorito', nombre: 'Completo Italiano', precio: '$1.800', desc: 'Pan copihue artesanal, salchicha sureña, tomate picado, palta molida y lactonesa de la casa.' },
+  churrasco:   { icon: 'fa-bacon', tag: 'Recomendado', nombre: 'Churrasco Italiano', precio: '$3.800', desc: 'Pan frica artesanal, churrasco de vacuno, tomate, palta molida y lactonesa. Con papas fritas.' },
+  papas:       { icon: 'fa-bowl-food', tag: 'Top', nombre: 'Papas para dos', precio: '$2.000', desc: 'Papas fritas deliciosamente condimentadas, para compartir con alguien especial.' },
+  salchipapas: { icon: 'fa-bowl-food', tag: 'Nuevo', nombre: 'Salchipapas', precio: '$1.800', desc: 'Nuestras exquisitas papas fritas, ahora con salchicha sureña.' },
+  pichanga:    { icon: 'fa-drumstick-bite', tag: 'Especial', nombre: 'Pichanga', precio: 'desde $8.500', desc: 'Cama de papas fritas, vacuno, pollo, palta en rodajas, tomate en gajos, queso y pepinillo dill. Para 2, 4 o 6.' }
+};
+
+function render(key) {
+  const [tipo, id] = key.split('-');
+  const s = document.getElementById('slide');
+  if (tipo === 'portada') {
+    const p = portadas[id];
+    s.classList.add('cover');
+    s.innerHTML = `${LOGO}
+      <div class="badge-circle"><svg viewBox="0 0 260 260"><use href="#${p.icon}"/></svg></div>
+      <div class="cover-text"><div class="cover-title">${p.titulo}</div><div class="cover-sub">${p.sub}</div></div>`;
+  } else if (tipo === 'menu') {
+    const m = menu[id];
+    const rows = m.items.map(([n, pr, d]) => `<div class="item"><div class="row"><span class="name">${n}</span><span class="price">${pr}</span></div>${d ? `<div class="desc">${d}</div>` : ''}</div>`).join('');
+    s.classList.add('menu-slide');
+    s.innerHTML = `${LOGO}${RIBBON(m.titulo)}
+      ${m.nota ? `<p class="note">${m.nota}</p>` : ''}
+      <div class="card ${m.big ? 'big-items' : m.items.length <= 5 ? 'roomy' : ''}">${rows}</div>
+      ${WA('Pedidos por WhatsApp')}`;
+  } else if (tipo === 'producto') {
+    const p = productos[id];
+    s.innerHTML = `${LOGO}
+      <div class="food-circle"><i class="fa-solid ${p.icon}"></i></div>
+      <div class="center"><span class="tag">${p.tag}</span><div class="prod-name">${p.nombre}</div><div class="prod-price">${p.precio}</div></div>
+      <p class="prod-desc">${p.desc}</p>
+      ${WA('Pídelo por WhatsApp')}`;
+  } else if (tipo === 'clientes') {
+    s.innerHTML = `${LOGO}${RIBBON('<u class="ex">¡</u>Gracias!')}
+      <div class="badge-circle" style="width:520px;height:520px;border-width:12px"><svg viewBox="0 0 260 260" style="width:320px;height:320px"><use href="#ico-clientes"/></svg></div>
+      <div><p class="thanks">¿Ya nos probaste?<br>Sube tu foto a historias y etiquétanos</p><div class="handle">@dondelakothe</div></div>
+      <p class="note">Las mejores las compartimos aquí.</p>`;
+  } else if (tipo === 'ubicacion') {
+    s.innerHTML = `${LOGO}${RIBBON('<u class="ex">¡</u>Encuéntranos!')}
+      <div class="badge-circle" style="width:400px;height:400px;border-width:10px"><svg viewBox="0 0 260 260" style="width:240px;height:240px"><use href="#ico-ubicacion"/></svg></div>
+      <div><div class="place-big">Víctor Jara 64</div><div class="place-sub">Cañete</div></div>
+      <p class="note">Abierto <b>todos los días</b> de <b>17 a 23 hrs</b></p>
+      ${WA('Pedidos por WhatsApp')}`;
+  }
+}
+if (new URLSearchParams(location.search).get('f') === 'post') document.body.classList.add('post');
+render(location.hash.slice(1) || 'portada-horario');
+</script>
+</body>
+</html>
